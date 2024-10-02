@@ -1,0 +1,1 @@
+sort -k1,1 -k5,5 -k6,6 files.log | awk '$8 != "NULL" {print $1, $8}' | uniq -c | wc -l
