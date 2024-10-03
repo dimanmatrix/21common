@@ -1,0 +1,512 @@
+
+ЧИТАТЬ:
+    https://claude.ai/chat/66733cff-de62-4dd8-bcda-0ff915e554ab
+    https://habr.com/ru/articles/545674/
+
+ОШИБКИ В КОДЕ:
+    https://42-21-school.blogspot.com/2019/07/main.html
+    https://42-21-school.blogspot.com/search?updated-max=2019-07-10T12:05:00%2B03:00&max-results=7&start=47&by-date=false
+
+
+ИМЯ МАССИВА ЯВЛЯЕТСЯ УКАЗАТЕЛЕМ НА ЕГО ПЕРВЫЙ ЭЛЕМЕНТ
+
+
+В C все параметры передаются по значению. Когда мы передаём original в change_string(original), создаётся новая локальная переменная str внутри функции, которая получает копию значения original. Изменение str внутри функции не влияет на original в main().
+Когда мы передаём &original в change_string_correct(&original), мы передаём адрес самой переменной original. Внутри функции str становится указателем на этот адрес, позволяя нам изменять значение original через разыменование *str.
+
+
+
+
+
+День 1 (Shell 00)
+
+z: Создать файл, содержащий только "Z"
+    echo Z > z
+
+testShell00: Создать файл с определенными правами доступа
+    touch testShell00
+    chmod 455 testShell00
+
+exo3: Отобразить информацию о текущей конфигурации Git репозитория
+    git config -l
+
+midLS: Использовать ls с определенными опциями
+    ls -tUpm
+
+git_commit: Показать последние 5 хешей коммитов в Git
+    git log --format="%H" -n 5
+
+git_ignore: Показать игнорируемые файлы в Git
+    git ls-files --others --ignored --exclude-standard
+
+b: Создать файл, содержащий только определенные строки
+    echo "Episode V, A NEW H0PE It is a period of civil war
+    Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. 
+    During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon, the STAR DEATH, an armored space station with enough power to destroy an entire planet.
+
+
+    Pursued by the Empire's sinister agents,
+    Princess Mehdi races home aboard her starship, custodian of the stolen plans that can save her people and restore the dictatorship to the galaxie..
+
+
+
+
+    " > b
+
+clean: Написать команду для удаления определенных файлов
+    find . -type f \( -name "*~" -o -name "#*#" \) -delete
+
+Bonus (Ft_magic): Создать магический файл
+    41 string 42 42 file
+    echo "41 string 42 42 file" > 42.magic
+    file -m 42.magic your_test_file
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+День 2 (Shell 01)
+
+print_groups: Показать группы пользователя
+find_sh: Найти файлы с расширением .sh и вывести их имена без расширения
+count_files: Подсчитать количество файлов и директорий в текущей директории и поддиректориях
+MAC: Вывести MAC-адреса
+Can you create it?: Создать файл с специфическим именем
+Skip: Вывести каждую вторую строку
+r_dwssap: Изменить вывод команды cat /etc/passwd
+Bonus (add_chelou): Выполнить специфические арифметические операции
+
+# 1. print_groups
+Выводит группы пользователя, разделенные запятыми.
+groups $FT_USER | tr ' ' ',' | tr -d '\n'
+
+# 2. find_sh
+Находит все .sh файлы и выводит их имена без расширения.
+find . -type f -name "*.sh" -exec basename {} .sh \;
+
+# 3. count_files
+Подсчитывает все файлы и директории в текущей директории и поддиректориях.
+find . | wc -l
+
+# 4. MAC
+Выводит MAC-адреса, найденные в выводе ifconfig.
+ifconfig | grep -Eo '([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}'
+
+# 5. Can you create it?
+Создает файл с специфическим именем, содержащим специальные символы.
+touch '\"\\?\$*'\''KwaMe'\''*$?\\\"'
+
+# 6. Skip
+Выводит каждую вторую строку из ls -l.
+ls -l | sed -n 'n;p'
+
+# 7. r_dwssap
+Манипулирует выводом /etc/passwd, реверсируя имена пользователей и сортируя их.
+cat /etc/passwd | grep -v '^#' | sed -n 'n;p' | cut -d ':' -f 1 | rev | sort -r | sed -n "${FT_LINE1},${FT_LINE2}p" | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $/./g' | tr -d '\n'
+
+# 8. add_chelou (Bonus)
+Выполняет специфические арифметические операции с переводом между системами счисления.
+echo $FT_NBR1 + $FT_NBR2 | sed "s/'/0/g" | sed 's/\\/1/g' | sed 's/"/2/g' | sed "s/?/3/g" | sed "s/!/4/g" | tr "mrdoc" "01234" | xargs echo "ibase=5; obase=23;" | bc | tr "0123456789ABC" "gtaio luSnemf"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+День 3 (C 00)
+
+ft_putchar: Вывести символ на экран
+ft_print_alphabet: Вывести алфавит
+ft_print_numbers: Вывести цифры
+ft_is_negative: Определить, положительное ли число
+ft_print_comb: Вывести комбинации цифр
+ft_print_comb2: Вывести комбинации двузначных чисел
+ft_putnbr: Вывести число
+ft_print_combn: Вывести комбинации n цифр
+
+/* 1. ft_putchar */
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+/* 2. ft_print_alphabet */
+void ft_print_alphabet(void)
+{
+    char c = 'a';
+    while (c <= 'z')
+    {
+        ft_putchar(c);
+        c++;
+    }
+}
+
+/* 3. ft_print_numbers */
+void ft_print_numbers(void)
+{
+    char n = '0';
+    while (n <= '9')
+    {
+        ft_putchar(n);
+        n++;
+    }
+}
+
+/* 4. ft_is_negative */
+void ft_is_negative(int n)
+{
+    if (n < 0)
+        ft_putchar('N');
+    else
+        ft_putchar('P');
+}
+
+/* 5. ft_print_comb */
+void ft_print_comb(void)
+{
+    int a = '0';
+    int b, c;
+    
+    while (a <= '7')
+    {
+        b = a + 1;
+        while (b <= '8')
+        {
+            c = b + 1;
+            while (c <= '9')
+            {
+                ft_putchar(a);
+                ft_putchar(b);
+                ft_putchar(c);
+                if (a != '7' || b != '8' || c != '9')
+                {
+                    ft_putchar(',');
+                    ft_putchar(' ');
+                }
+                c++;
+            }
+            b++;
+        }
+        a++;
+    }
+}
+
+/* 6. ft_print_comb2 */
+void ft_print_comb2(void)
+{
+    int a = 0;
+    int b;
+    
+    while (a <= 98)
+    {
+        b = a + 1;
+        while (b <= 99)
+        {
+            ft_putchar((a / 10) + '0');
+            ft_putchar((a % 10) + '0');
+            ft_putchar(' ');
+            ft_putchar((b / 10) + '0');
+            ft_putchar((b % 10) + '0');
+            if (a != 98 || b != 99)
+            {
+                ft_putchar(',');
+                ft_putchar(' ');
+            }
+            b++;
+        }
+        a++;
+    }
+}
+
+/* 7. ft_putnbr */
+void ft_putnbr(int nb)
+{
+    if (nb == -2147483648)
+    {
+        ft_putchar('-');
+        ft_putchar('2');
+        ft_putnbr(147483648);
+    }
+    else if (nb < 0)
+    {
+        ft_putchar('-');
+        ft_putnbr(-nb);
+    }
+    else if (nb > 9)
+    {
+        ft_putnbr(nb / 10);
+        ft_putnbr(nb % 10);
+    }
+    else
+        ft_putchar(nb + '0');
+}
+
+/* 8. ft_print_combn (упрощенная версия для n = 2) */
+void ft_print_combn(int n)
+{
+    int a = 0;
+    int b;
+    
+    while (a <= 8)
+    {
+        b = a + 1;
+        while (b <= 9)
+        {
+            ft_putchar(a + '0');
+            ft_putchar(b + '0');
+            if (a != 8 || b != 9)
+            {
+                ft_putchar(',');
+                ft_putchar(' ');
+            }
+            b++;
+        }
+        a++;
+    }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+ВЫСЕР БОЛЬШОЙ ЗАДАЧИ ДЛЯ ПРОИЗВОЛЬНОГО N:
+
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void ft_print_array(int *arr, int n)
+{
+    int i;
+    
+    for (i = 0; i < n; i++)
+        ft_putchar(arr[i] + '0');
+}
+
+int ft_is_last_combination(int *arr, int n)
+{
+    int i;
+    
+    for (i = 0; i < n; i++)
+    {
+        if (arr[i] != 9 - n + 1 + i)
+            return 0;
+    }
+    return 1;
+}
+
+void ft_print_combn_recursive(int *arr, int n, int index, int start)
+{
+    int i;
+    
+    if (index == n)
+    {
+        ft_print_array(arr, n);
+        if (!ft_is_last_combination(arr, n))
+        {
+            ft_putchar(',');
+            ft_putchar(' ');
+        }
+        return;
+    }
+    
+    for (i = start; i <= 9; i++)
+    {
+        arr[index] = i;
+        ft_print_combn_recursive(arr, n, index + 1, i + 1);
+    }
+}
+
+void ft_print_combn(int n)
+{
+    int arr[10];  // Максимальное значение n - 10
+    
+    if (n <= 0 || n > 10)
+        return;
+    
+    ft_print_combn_recursive(arr, n, 0, 0);
+}
+
+// Пример использования
+int main()
+{
+    ft_print_combn(2);
+    ft_putchar('\n');
+    ft_print_combn(3);
+    ft_putchar('\n');
+    return 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+День 4 (C 01)
+
+ft_ft: Указатели на указатели
+ft_ultimate_ft: Указатели на указатели на указатели...
+ft_swap: Поменять значения двух целых чисел
+ft_div_mod: Разделить два числа и получить частное и остаток
+ft_ultimate_div_mod: То же самое, но с указателями
+ft_putstr: Вывести строку
+ft_strlen: Посчитать длину строки
+ft_rev_int_tab: Обратить порядок элементов в массиве
+ft_sort_int_tab: Сортировка массива по возрастанию
+
+
+
+
+ft_ft: Устанавливает значение по указателю в 42.
+ft_ultimate_ft: То же самое, но с девятью уровнями указателей.
+ft_swap: Меняет значения двух переменных местами.
+ft_div_mod: Выполняет деление и находит остаток, сохраняя результаты по указателям.
+ft_ultimate_div_mod: То же, что и предыдущая, но изменяет значения исходных переменных.
+ft_putstr: Выводит строку, используя указатели для перебора символов.
+ft_strlen: Считает длину строки, используя индексацию массива.
+ft_rev_int_tab: Переворачивает массив целых чисел.
+ft_sort_int_tab: Сортирует массив целых чисел по возрастанию (используется пузырьковая сортировка).
+
+
+
+
+/* 1. ft_ft */
+void ft_ft(int *nbr)
+{
+    *nbr = 42;
+}
+
+/* 2. ft_ultimate_ft */
+void ft_ultimate_ft(int *********nbr)
+{
+    *********nbr = 42;
+}
+
+/* 3. ft_swap */
+void ft_swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+/* 4. ft_div_mod */
+void ft_div_mod(int a, int b, int *div, int *mod)
+{
+    if (b != 0)
+    {
+        *div = a / b;
+        *mod = a % b;
+    }
+}
+
+/* 5. ft_ultimate_div_mod */
+void ft_ultimate_div_mod(int *a, int *b)
+{
+    if (*b != 0)
+    {
+        int temp = *a;
+        *a = *a / *b;
+        *b = temp % *b;
+    }
+}
+
+/* 6. ft_putstr */
+void ft_putstr(char *str)
+{
+    while (*str)
+    {
+        write(1, str, 1);
+        str++;
+    }
+}
+
+/* 7. ft_strlen */
+int ft_strlen(char *str)
+{
+    int len = 0;
+    while (str[len])
+        len++;
+    return len;
+}
+
+/* 8. ft_rev_int_tab */
+void ft_rev_int_tab(int *tab, int size)
+{
+    int start = 0;
+    int end = size - 1;
+    while (start < end)
+    {
+        int temp = tab[start];
+        tab[start] = tab[end];
+        tab[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+/* 9. ft_sort_int_tab */
+void ft_sort_int_tab(int *tab, int size)
+{
+    int i, j;
+    for (i = 0; i < size - 1; i++)
+    {
+        for (j = 0; j < size - i - 1; j++)
+        {
+            if (tab[j] > tab[j + 1])
+            {
+                int temp = tab[j];
+                tab[j] = tab[j + 1];
+                tab[j + 1] = temp;
+            }
+        }
+    }
+}
