@@ -1,0 +1,283 @@
+Run tests:
+
+-------------------------------------------------------------------------------
+
+Quest_1
+
+Style test
+Style test output:
+Style test: OK 1
+
+Style test result: 1
+
+-------------------------------------------------------------------------------
+
+Build output:
+
+Project build: OK 1
+
+Build result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 0, name: Quest_1
+
+Test output: Result for test with number 0: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 1, name: Quest_1
+
+Test output: Result for test with number 1: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 2, name: Quest_1
+
+Test output: Result for test with number 2: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 3, name: Quest_1
+
+Test output: Result for test with number 3: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 4, name: Quest_1
+
+Test output: Result for test with number 4: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 5, name: Quest_1
+
+Test output: Result for test with number 5: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 6, name: Quest_1
+
+Test output: Result for test with number 6: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 7, name: Quest_1
+
+Test output: Result for test with number 7: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 8, name: Quest_1
+
+Test output: Result for test with number 8: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Test number: 9, name: Quest_1
+
+Test output: Result for test with number 9: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 10, name: Quest_1
+
+Test output: Result for test with number 10: FAIL 0
+
+Test result: 0
+
+-------------------------------------------------------------------------------
+
+Quest_2
+
+Style test
+Style test output:
+Style test: OK 1
+
+Style test result: 1
+
+-------------------------------------------------------------------------------
+
+Build output:
+
+Project build: OK 1
+
+Build result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 11, name: Quest_2
+
+Test output: Result for test with number 11: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 12, name: Quest_2
+
+Test output: Result for test with number 12: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 13, name: Quest_2
+
+Test output: Result for test with number 13: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 14, name: Quest_2
+
+Test output: Result for test with number 14: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 15, name: Quest_2
+
+Test output: Result for test with number 15: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 16, name: Quest_2
+
+Test output: Result for test with number 16: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Quest_3
+
+Style test
+Style test output:
+Style test: OK 1
+
+Style test result: 1
+
+-------------------------------------------------------------------------------
+
+Build output:
+
+Project build: OK 1
+
+Build result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 17, name: Quest_3
+
+Test output: Result for test with number 17: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 18, name: Quest_3
+
+Test output: Result for test with number 18: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 19, name: Quest_3
+
+Test output: Result for test with number 19: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 20, name: Quest_3
+
+Test output: Result for test with number 20: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 21, name: Quest_3
+
+Test output: Result for test with number 21: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 22, name: Quest_3
+
+Test output: Result for test with number 22: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 23, name: Quest_3
+
+Test output: Result for test with number 23: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 24, name: Quest_3
+
+Test output: Result for test with number 24: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
+
+Quest_4
+
+Style test
+Style test output:
+Style test: OK 1
+
+Style test result: 1
+
+-------------------------------------------------------------------------------
+
+Build output:
+
+Project build: OK 1
+
+Build result: 1
+
+-------------------------------------------------------------------------------
+
+Test number: 25, name: Quest_4
+
+Test output: Result for test with number 25: OK 1
+
+Test result: 1
+
+-------------------------------------------------------------------------------
